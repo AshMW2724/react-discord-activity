@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite --port=3001",
+    "dev": "vite --port=6970",
     "build": "vite build",
     "serve": "vite preview",
     "start": "vite"
@@ -17,6 +17,7 @@
     "immer": "^10.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "use-local-storage-state": "^19.1.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
