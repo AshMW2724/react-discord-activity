@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+@layer base {
+  iframe {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-black text-white min-h-screen;
+  }
+
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: 'slnt' 0;
+  }
+
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+  }
+}

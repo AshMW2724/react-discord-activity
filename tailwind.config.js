@@ -1,11 +1,19 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
+  darkMode: ['class'],
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './src/**/*.{ts,tsx}',
+    './src/routes/**/*.{ts,tsx}',
+    './src/components/**/*.{ts,tsx}',
+    './**/*.html',
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'pnp': '325px'
+      }
+    },
   },
   plugins: [],
 }
+

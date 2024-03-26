@@ -1,9 +1,7 @@
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createRouter } from '@tanstack/react-router';
 import { routeTree } from './routeTree.gen';
-import { DiscordSDK } from '@discord/embedded-app-sdk';
-import DiscordProvider from './components/providers/discord';
-import AuthProvider from './components/providers/auth';
+import { AuthenticatedContextProvider } from './hooks/useAuthenticatedContext';
 
 // Set up a Router instance
 const router = createRouter({
@@ -18,17 +16,13 @@ declare module '@tanstack/react-router' {
   }
 }
 
-const discordSdk = new DiscordSDK(import.meta.env.VITE_DISCORD_CLIENT_ID);
-
-const rootElement = document.getElementById('app')!;
+const rootElement = document.getElementById('root')!;
 
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
-    <DiscordProvider sdk={discordSdk}>
-      <AuthProvider>
-        <RouterProvider router={router} />
-      </AuthProvider>
-    </DiscordProvider>,
+    <AuthenticatedContextProvider>
+      <RouterProvider router={router} />
+    </AuthenticatedContextProvider>,
   );
 }

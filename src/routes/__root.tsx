@@ -1,5 +1,6 @@
 import { Link, Outlet, createRootRoute } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
+import { useAuthenticatedContext } from '@/hooks/useAuthenticatedContext';
 import '../index.css';
 
 export const Route = createRootRoute({
@@ -7,30 +8,35 @@ export const Route = createRootRoute({
 });
 
 function RootComponent() {
+  const auth = useAuthenticatedContext();
+
   return (
     <>
-      <div className="p-2 flex gap-2 text-lg">
+      {/* Navigation */}
+      <nav className="flex gap-4 bg-neutral-900 mb-4">
         <Link
           to="/"
           activeProps={{
-            className: 'font-bold',
+            className: 'text-red-500',
           }}
-          activeOptions={{ exact: true }}
         >
-          Home
-        </Link>{' '}
+          Dashboard
+        </Link>
         <Link
-          to={'/about'}
+          to="/about"
           activeProps={{
-            className: 'font-bold',
+            className: 'text-red-500',
           }}
         >
           About
         </Link>
-      </div>
-      <hr />
-      <Outlet />
-      <TanStackRouterDevtools position="bottom-right" />
+        <div className="ml-auto"></div>
+      </nav>
+      <main className="px-4">
+        {/* Page */}
+        <Outlet />
+        <TanStackRouterDevtools position="bottom-right" />
+      </main>
     </>
   );
 }

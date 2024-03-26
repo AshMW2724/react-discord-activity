@@ -1,28 +1,18 @@
 import { createFileRoute } from '@tanstack/react-router';
-import useDiscord from '../hooks/useDiscord';
-import useUser from '../hooks/useUser';
+import { useAuthenticatedContext } from '@/hooks/useAuthenticatedContext';
+import PictureInPicture from '@/components/pictureInPicture';
 
 export const Route = createFileRoute('/')({
   component: HomeComponent,
 });
 
 function HomeComponent() {
-  const discord = useDiscord();
-  const { user } = useUser();
+  const auth = useAuthenticatedContext();
 
   return (
-    <div className="p-2">
-      <h3>
-        {user.avatar} {discord.channelId}{' '}
-        <button
-          onClick={async () => {
-            const url = await discord.commands.initiateImageUpload();
-            console.log(url);
-          }}
-        >
-          run bs
-        </button>
-      </h3>
+    <div>
+      <PictureInPicture>This is only shown when in Picture-In-Picture!</PictureInPicture>
+      Hello World
     </div>
   );
 }
