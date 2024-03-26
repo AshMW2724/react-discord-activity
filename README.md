@@ -18,7 +18,7 @@ For this activity to work properly you need an API for OAUTH2. Map your API to t
 
 The route `/token` (On the client we will use `/api/token`) will be used to `POST`:
 
-```json
+```js
 // application/json
 {
   "code": "... discord oauth2 code ..."
@@ -27,7 +27,7 @@ The route `/token` (On the client we will use `/api/token`) will be used to `POS
 
 Your API should respond with
 
-```json
+```js
 // application/json
 {
   "access_token": "... discord access token ..."
