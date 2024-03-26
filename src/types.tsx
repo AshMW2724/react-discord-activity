@@ -1,10 +1,10 @@
 import { discordSdk } from './discordSdk';
 
-export type TAuthenticateResponse = Awaited<ReturnType<typeof discordSdk.commands.authenticate>>;
+export type AuthenticateResponse = Awaited<ReturnType<typeof discordSdk.commands.authenticate>>;
 
-export type TAuthenticatedContext = TAuthenticateResponse & { guildMember: IGuildsMembersRead | null };
+export type AuthenticatedContext = AuthenticateResponse & { guildMember: GuildsMembersRead | null };
 
-export interface IGuildsMembersRead {
+export interface GuildsMembersRead {
   roles: string[];
   nick: string | null;
   avatar: string | null;

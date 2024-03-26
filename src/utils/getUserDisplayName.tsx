@@ -1,12 +1,12 @@
-import {IGuildsMembersRead} from '../types';
-import {Types} from '@discord/embedded-app-sdk';
+import { GuildsMembersRead } from '../types';
+import { Types } from '@discord/embedded-app-sdk';
 
 interface GetUserDisplayNameArgs {
-  guildMember: IGuildsMembersRead | null;
+  guildMember: GuildsMembersRead | null;
   user: Partial<Types.User>;
 }
 
-export function getUserDisplayName({guildMember, user}: GetUserDisplayNameArgs) {
+export function getUserDisplayName({ guildMember, user }: GetUserDisplayNameArgs) {
   if (guildMember?.nick != null && guildMember.nick !== '') return guildMember.nick;
 
   if (user.discriminator !== '0') return `${user.username}#${user.discriminator}`;

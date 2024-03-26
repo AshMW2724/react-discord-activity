@@ -1,20 +1,15 @@
-import {discordSdk} from '../discordSdk';
-import {IGuildsMembersRead} from '../types';
-import {Types} from '@discord/embedded-app-sdk';
+import { discordSdk } from '../discordSdk';
+import { GuildsMembersRead } from '../types';
+import { Types } from '@discord/embedded-app-sdk';
 
 interface GetUserAvatarArgs {
-  guildMember: IGuildsMembersRead | null;
+  guildMember: GuildsMembersRead | null;
   user: Partial<Types.User>;
   cdn?: string;
   size?: number;
 }
 
-export function getUserAvatarUrl({
-  guildMember,
-  user,
-  cdn = `https://cdn.discordapp.com`,
-  size = 256,
-}: GetUserAvatarArgs): string {
+export function getUserAvatarUrl({ guildMember, user, cdn = `https://cdn.discordapp.com`, size = 256 }: GetUserAvatarArgs): string {
   if (guildMember?.avatar != null && discordSdk.guildId != null) {
     return `${cdn}/guilds/${discordSdk.guildId}/users/${user.id}/avatars/${guildMember.avatar}.png?size=${size}`;
   }

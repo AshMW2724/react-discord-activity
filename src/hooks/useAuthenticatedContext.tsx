@@ -1,11 +1,11 @@
 import { discordSdk } from '../discordSdk';
 import { LoadingScreen } from '../components/LoadingScreen';
 
-import type { IGuildsMembersRead, TAuthenticateResponse, TAuthenticatedContext } from '../types';
+import type { GuildsMembersRead, AuthenticateResponse, AuthenticatedContext } from '../types';
 import { ReactNode, createContext, useContext, useEffect, useRef, useState } from 'react';
 import { RPCCloseCodes } from '@discord/embedded-app-sdk';
 
-const AuthenticatedContext = createContext<TAuthenticatedContext>({
+const AuthenticatedContext = createContext<AuthenticatedContext>({
   user: {
     id: '',
     username: '',
@@ -41,7 +41,7 @@ export function useAuthenticatedContext() {
 }
 
 function useAuthenticatedContextSetup() {
-  const [auth, setAuth] = useState<TAuthenticatedContext | null>(null);
+  const [auth, setAuth] = useState<AuthenticatedContext | null>(null);
 
   const settingUp = useRef(false);
 
@@ -107,12 +107,12 @@ function useAuthenticatedContextSetup() {
       console.log(response);
 
       // Authenticate with Discord client (using the access_token)
-      const newAuth: TAuthenticateResponse = await discordSdk.commands.authenticate({
+      const newAuth: AuthenticateResponse = await discordSdk.commands.authenticate({
         access_token,
       });
 
       // Get guild specific nickname and avatar, and fallback to user name and avatar
-      const guildMember: IGuildsMembersRead | null = await fetch(`/discord/api/users/@me/guilds/${discordSdk.guildId}/member`, {
+      const guildMember: GuildsMembersRead | null = await fetch(`/discord/api/users/@me/guilds/${discordSdk.guildId}/member`, {
         method: 'get',
         headers: { Authorization: `Bearer ${access_token}` },
       })
