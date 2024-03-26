@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        'pnp': '325px'
+        'pip': '325px'
       }
     },
   },
