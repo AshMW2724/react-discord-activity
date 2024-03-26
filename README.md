@@ -6,6 +6,10 @@ Because I like React :)
 
 First rename `.env.example` to `.env`, then add your bot's client ID.
 
+## Fonts
+
+This example uses Google Fonts (`/src/styles/fonts.css`), for them to work properly add a url mapping for `/gstatic` -> `fonts.gstatic.com` 
+
 ### API
 
 For this activity to work properly you need an API for OAUTH2. Map your API to the `/api` route.
