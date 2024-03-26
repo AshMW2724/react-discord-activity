@@ -6,7 +6,7 @@ Because I like React :)
 
 First rename `.env.example` to `.env`, then add your bot's client ID.
 
-## Fonts
+### Fonts
 
 This example uses Google Fonts (`/src/styles/fonts.css`), for them to work properly add a url mapping for `/gstatic` -> `fonts.gstatic.com` 
 
