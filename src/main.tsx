@@ -2,6 +2,7 @@ import ReactDOM from 'react-dom/client';
 import { RouterProvider, createRouter } from '@tanstack/react-router';
 import { routeTree } from './routeTree.gen';
 import { AuthenticatedContextProvider } from './hooks/useAuthenticatedContext';
+import ScreenProvider from './components/screenProvider';
 
 // Set up a Router instance
 const router = createRouter({
@@ -22,7 +23,9 @@ if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <AuthenticatedContextProvider>
-      <RouterProvider router={router} />
+      <ScreenProvider>
+        <RouterProvider router={router} />
+      </ScreenProvider>
     </AuthenticatedContextProvider>,
   );
 }
