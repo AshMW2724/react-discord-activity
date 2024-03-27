@@ -12,7 +12,7 @@ export default function PictureInPicture(props: Props) {
   const { className, children } = props;
   const { layout } = useScreen();
 
-  if (layout !== ScreenLayout.PIP) return `${layout}`;
+  if (layout !== ScreenLayout.PIP) return null;
   return (
     <div style={{ zIndex: 999999 }} className={cn('fixed top-0 left-0 right-0 bottom-0 bg-[#242628]', className)}>
       {children}
