@@ -1,5 +1,5 @@
 import { discordSdk } from '../discordSdk';
-import { LoadingScreen } from '../components/LoadingScreen';
+import { LoadingScreen } from '../components/loadingScreen';
 
 import type { GuildsMembersRead, AuthenticateResponse, AuthenticatedContext } from '../types';
 import { ReactNode, createContext, useContext, useEffect, useRef, useState } from 'react';
